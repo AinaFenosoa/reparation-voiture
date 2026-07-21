@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom"; // <-- Import pour la navigation
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { TireSVG } from "../components/TireSVG";
@@ -13,6 +14,8 @@ export default function Blog() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  const navigate = useNavigate(); // <-- Initialisation du hook de navigation
+
   const tireRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLElement | null)[]>([]);
   const titleTireSvgRef = useRef<SVGSVGElement>(null);
@@ -21,7 +24,6 @@ export default function Blog() {
   const linesRef = useRef<(HTMLHeadingElement | null)[]>([]);
   const charsPerLineRef = useRef<(HTMLSpanElement | null)[][]>([[], [], [], []]);
 
-  // 1. Récupération des données avec un délai minimal de 2.5 secondes pour la fluidité
   useEffect(() => {
     const fetchPosts = async () => {
       const startTime = Date.now();
@@ -45,7 +47,6 @@ export default function Blog() {
     fetchPosts();
   }, []);
 
-  // 2. Animation 3D du loader (4 lignes répétées)
   useEffect(() => {
     if (loading) {
       const transformOrigin = `50% 50% -40px`;
@@ -57,7 +58,7 @@ export default function Blog() {
       charsPerLineRef.current.forEach((chars, index) => {
         if (chars && chars.length > 0) {
           tl.fromTo(
-            chars.filter(Boolean), // Filtre les éléments valides pour éviter les erreurs
+            chars.filter(Boolean),
             { rotationX: -90 },
             {
               rotationX: 90,
@@ -73,7 +74,6 @@ export default function Blog() {
     }
   }, [loading]);
 
-  // 3. Animations GSAP principales
   useEffect(() => {
     gsap.to(titleTireSvgRef.current, {
       rotation: 360,
@@ -155,7 +155,6 @@ export default function Blog() {
                   }}
                   className={`blog-loader-line line${lineIndex + 1}`}
                 >
-                  {/* Version bureau / grands écrans */}
                   <span className="loader-text-full">
                     {fullText.split("").map((char, charIndex) => (
                       <span
@@ -175,14 +174,13 @@ export default function Blog() {
                     ))}
                   </span>
 
-                  {/* Version mobile / petits écrans */}
                   <span className="loader-text-short">
                     {shortText.split("").map((char, charIndex) => (
                       <span
                         key={`short-${charIndex}`}
                         ref={(el) => {
                           if (el) {
-                            const offsetIndex = fullText.length + charIndex; // Décale l'index pour éviter les conflits de ref
+                            const offsetIndex = fullText.length + charIndex;
                             if (!charsPerLineRef.current[lineIndex]) {
                               charsPerLineRef.current[lineIndex] = [];
                             }
@@ -242,7 +240,11 @@ export default function Blog() {
                       <p className="blog-card-text">
                         {post.extrait || post.contenu}
                       </p>
-                      <button className="blog-btn-read-more">
+                      {/* Redirection dynamique vers la page de détail de l'article */}
+                      <button
+                        className="blog-btn-read-more"
+                        onClick={() => navigate(`/blog/${post.slug}`)}
+                      >
                         LIRE LA SUITE <span className="blog-btn-icon">→</span>
                       </button>
                     </div>
@@ -253,7 +255,7 @@ export default function Blog() {
           </>
         )}
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
