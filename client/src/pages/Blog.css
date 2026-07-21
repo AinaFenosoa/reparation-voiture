@@ -1,0 +1,152 @@
+/* --- Styles précédents conservés (Variables, Hero) --- */
+:root {
+  --blog-primary-black: #111111;
+  --blog-secondary-black: #1a1a1a;
+  --blog-accent-yellow: #f6b72a;
+  --blog-text-light: #ffffff;
+  --blog-text-gray: #7a7a7a;
+  --blog-bg-light: #f4f4f4;
+  --blog-white: #ffffff;
+  --blog-transition: all 0.3s ease-in-out;
+}
+
+.blog-page-container {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--blog-bg-light);
+  min-height: 100vh;
+  padding-bottom: 5rem;
+  overflow-x: hidden; /* Crucial pour cacher les éléments hors écran à droite/gauche */
+}
+
+/* (Gardez ici votre CSS pour .blog-hero-section, .blog-hero-overlay, etc. de mon message précédent) */
+.blog-hero-section {
+  position: relative;
+  background-color: var(--blog-primary-black);
+  background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--blog-text-light);
+}
+.blog-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(17, 17, 17, 0.85); z-index: 1; }
+.blog-hero-content { position: relative; z-index: 2; }
+.blog-hero-subtitle { color: var(--blog-accent-yellow); font-size: 1rem; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; }
+.blog-hero-title { font-size: 3.5rem; font-weight: 800; margin: 0 0 15px 0; text-transform: uppercase; }
+.blog-highlight { color: var(--blog-accent-yellow); }
+.blog-hero-description { color: #cccccc; max-width: 600px; margin: 0 auto; font-size: 1.1rem; line-height: 1.5; }
+
+.blog-main-content {
+  max-width: 1200px;
+  margin: -50px auto 0;
+  padding: 0 20px;
+  position: relative;
+  z-index: 3;
+}
+
+.blog-letter-o {
+  display: inline-block;
+}
+
+.blog-title-tire {
+  display: inline-block;
+  width: 1.1em; /* Taille augmentée (précédemment 0.8em) */
+  height: 1.1em;
+  vertical-align: middle;
+  margin: 0 6px;
+  line-height: 0; 
+}
+
+.blog-title-tire svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- ANIMATION GROS PNEU ET TRACE (Ajusté) --- */
+.blog-animation-wrapper {
+  position: relative;
+  width: 100%;
+  height: 140px; 
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* La trace de gomme (plus épaisse, plus foncée, visible sur mobile) */
+.blog-tire-track {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 30px; /* Plus épais */
+  background: repeating-linear-gradient(
+    90deg,
+    #111111 0px,
+    #111111 15px,
+    transparent 15px,
+    transparent 25px
+  );
+  opacity: 0.5; /* Plus visible */
+  border-radius: 10px;
+  z-index: 1;
+  box-shadow: inset 0px 2px 5px rgba(0,0,0,0.5); /* Effet incrusté dans le sol */
+}
+
+/* Le conteneur du gros pneu (agrandi) */
+.blog-tire-container {
+  position: absolute;
+  left: -150px; 
+  width: 120px;
+  height: 120px;
+  z-index: 2;
+}
+
+.blog-tire-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0px 8px 10px rgba(0,0,0,0.4));
+}
+
+/* --- Grille et Cartes (Modifié pour GSAP) --- */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* J'ai supprimé l'animation CSS pure ici car GSAP s'en occupe */
+.blog-card {
+  background-color: var(--blog-white);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease; /* On garde juste le hover en CSS */
+}
+
+.blog-card:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.blog-card-image-wrapper { position: relative; width: 100%; height: 240px; overflow: hidden; }
+.blog-card-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.blog-card:hover .blog-card-image { transform: scale(1.1); }
+.blog-card-date-badge { position: absolute; top: 20px; left: 20px; background-color: var(--blog-accent-yellow); color: var(--blog-primary-black); padding: 8px 15px; font-size: 0.85rem; font-weight: bold; border-radius: 2px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(246, 183, 42, 0.3); }
+
+.blog-card-body { padding: 30px; }
+.blog-card-title { font-size: 1.4rem; font-weight: 700; color: var(--blog-primary-black); margin: 0 0 15px 0; line-height: 1.4; transition: var(--blog-transition); }
+.blog-card:hover .blog-card-title { color: var(--blog-accent-yellow); }
+.blog-card-text { color: var(--blog-text-gray); font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+.blog-btn-read-more { background-color: transparent; color: var(--blog-primary-black); border: 2px solid var(--blog-primary-black); padding: 10px 25px; font-size: 0.9rem; font-weight: bold; cursor: pointer; border-radius: 25px; display: flex; align-items: center; gap: 10px; transition: var(--blog-transition); }
+.blog-btn-icon { transition: transform 0.3s ease; }
+.blog-btn-read-more:hover { background-color: var(--blog-accent-yellow); border-color: var(--blog-accent-yellow); color: var(--blog-white); }
+.blog-btn-read-more:hover .blog-btn-icon { transform: translateX(5px); }
+
+@media (max-width: 768px) {
+  .blog-hero-title { font-size: 2.5rem; }
+  .blog-hero-section { height: 350px; }
+  .blog-main-content { margin-top: -30px; }
+}
