@@ -1,0 +1,144 @@
+/* Conteneur global */
+.services-page {
+  width: 100%;
+  background-color: #000000;
+  overflow-x: hidden;
+}
+
+.section-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* ==========================================================================
+   1. HERO (Fond sombre + Image + Ligne cassée en bas)
+   ========================================================================== */
+.bg-hero {
+  position: relative;
+  background: 
+    linear-gradient(rgba(10, 12, 14, 0.88), rgba(10, 12, 14, 0.88)),
+    url('https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=1600') center/cover no-repeat;
+  color: #ffffff;
+  padding-bottom: 120px;
+
+  /* Découpe cassée au bas du Hero */
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 48% 88%, 42% 100%, 0 100%);
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 60px auto 0 auto;
+}
+
+.step-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin: 10px 0;
+}
+
+.hero-subtitle {
+  color: #cccccc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.btn-primary {
+  margin-top: 25px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+/* ==========================================================================
+   2. MILIEU (Fond Blanc)
+   ========================================================================== */
+.bg-white {
+  background-color: #ffffff;
+  color: #0e1012;
+  margin-top: -40px;
+  padding: 80px 20px 100px 20px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   3. CARTES (Fond Gris + Ligne cassée haut et bas)
+   ========================================================================== */
+.bg-grey {
+  background-color: #f2f3f5;
+  color: #0e1012;
+  margin-top: -30px;
+  padding-top: 90px;
+  padding-bottom: 120px;
+
+  /* Entaille angulaire en haut à gauche et en bas à gauche */
+  clip-path: polygon(0 40px, 42% 40px, 48% 0, 100% 0, 100% calc(100% - 40px), 48% calc(100% - 40px), 42% 100%, 0 100%);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.card-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.card-id {
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #0e1012;
+}
+
+.card-price {
+  display: inline-block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.slider-wrapper {
+  margin-top: 50px;
+}
+
+.slider-badge {
+  background: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   4. BAS (Footer Noir)
+   ========================================================================== */
+.bg-black {
+  background-color: #000000;
+  color: #ffffff;
+  margin-top: -40px;
+  padding: 100px 20px 60px 20px;
+  text-align: center;
+}
