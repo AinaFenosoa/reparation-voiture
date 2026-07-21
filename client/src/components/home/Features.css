@@ -1,0 +1,38 @@
+.features {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  flex: 1;
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.feature-text h4 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: var(--text-dark);
+}
+
+.feature-text p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.4;
+  max-width: 250px;
+}
+
+@media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
