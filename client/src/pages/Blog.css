@@ -53,10 +53,10 @@
 
 .blog-title-tire {
   display: inline-block;
-  width: 1.1em; /* Taille augmentée (précédemment 0.8em) */
-  height: 1.1em;
+  width: 1.5em; /* Taille augmentée (précédemment 0.8em) */
+  height: 1.5em;
   vertical-align: middle;
-  margin: 0 6px;
+  margin: 0;
   line-height: 0; 
 }
 
@@ -98,6 +98,7 @@
 /* Le conteneur du gros pneu (agrandi) */
 .blog-tire-container {
   position: absolute;
+  top: -25px;
   left: -150px; 
   width: 120px;
   height: 120px;

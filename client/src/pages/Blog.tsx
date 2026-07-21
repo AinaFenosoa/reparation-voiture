@@ -25,16 +25,14 @@ export default function Blog() {
   const titleTireSvgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    // 1. Animation infinie du pneu dans le titre (indépendante du reste)
     gsap.to(titleTireSvgRef.current, {
       rotation: 360,
       transformOrigin: "50% 50%",
       duration: 3,
-      repeat: -1, // Tourne à l'infini
+      repeat: -1,
       ease: "linear",
     });
 
-    // 2. Timeline pour l'introduction (Gros pneu + Articles)
     const tl = gsap.timeline();
 
     gsap.set(cardsRef.current, { x: "100vw", opacity: 0 });
