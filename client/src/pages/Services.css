@@ -1,7 +1,19 @@
+:root {
+  --service-primary-black: #111111;
+  --service-secondary-black: #1a1a1a;
+  --service-accent-yellow: #f6b72a;
+  --service-text-light: #ffffff;
+  --service-text-gray: #7a7a7a;
+  --service-bg-light: #f4f4f4;
+  --service-white: #ffffff;
+  --service-transition: all 0.3s ease-in-out;
+}
 /* Conteneur global */
 .services-page {
   width: 100%;
-  background-color: #000000;
+  background-color: var(--service-bg-light);
+  min-height: 100vh;
+  padding-bottom: 5rem;
   overflow-x: hidden;
 }
 
@@ -16,20 +28,37 @@
    ========================================================================== */
 .bg-hero {
   position: relative;
-  background: 
-    linear-gradient(rgba(10, 12, 14, 0.88), rgba(10, 12, 14, 0.88)),
-    url('https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=1600') center/cover no-repeat;
-  color: #ffffff;
-  padding-bottom: 120px;
+  background-color: var(--service-primary-black);
+  background-image: url('https://images.unsplash.com/photo-1645445522156-9ac06bc7a767?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  color: var(--service-text-light);
 
   /* Découpe cassée au bas du Hero */
-  clip-path: polygon(0 0, 100% 0, 100% 88%, 48% 88%, 42% 100%, 0 100%);
+  /* clip-path: polygon(0 0, 100% 0, 100% 88%, 48% 88%, 42% 100%, 0 100%); */
+}
+.service-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+  background: rgba(17, 17, 17, 0.85); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1; 
 }
 
+.service-hero-subtitle { color: var(--blog-accent-yellow); font-size: 1rem; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; }
+.service-hero-description { color: #cccccc; max-width: 600px; margin: 0 auto; font-size: 1.1rem; line-height: 1.5; }
+h1.hero-subtitle {
+  color: var(--service-accent-yellow);
+}
 .hero-content {
+  position: relative;
+  z-index: 2;
   text-align: center;
   max-width: 600px;
-  margin: 60px auto 0 auto;
+  margin: 0 auto; /* Suppression de margin-top: 60px */
 }
 
 .step-number {
@@ -89,7 +118,7 @@
   padding-bottom: 120px;
 
   /* Entaille angulaire en haut à gauche et en bas à gauche */
-  clip-path: polygon(0 40px, 42% 40px, 48% 0, 100% 0, 100% calc(100% - 40px), 48% calc(100% - 40px), 42% 100%, 0 100%);
+  /* clip-path: polygon(0 40px, 42% 40px, 48% 0, 100% 0, 100% calc(100% - 40px), 48% calc(100% - 40px), 42% 100%, 0 100%); */
 }
 
 .cards-grid {
@@ -142,3 +171,12 @@
   padding: 100px 20px 60px 20px;
   text-align: center;
 }
+
+/* Responsive identical au Blog */
+@media (max-width: 768px) {
+  .bg-hero { 
+    height: 350px; 
+  }
+  .hero-title { 
+    font-size: 2.5rem; 
+  }}

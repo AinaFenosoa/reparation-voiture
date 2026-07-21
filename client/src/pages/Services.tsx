@@ -62,11 +62,9 @@ export default function Services() {
 
   return (
     <div className="services-page">
-      
-      {/* 1. HAUT : HERO SOMBRE AVEC IMAGE & DÉCOUPE EN CASSURE */}
+      <NavBar />
       <section className="bg-hero">
-        <NavBar />
-        
+        <div className="service-hero-overlay">
         <motion.div 
           className="hero-content"
           initial="hidden"
@@ -75,22 +73,14 @@ export default function Services() {
           custom={0}
           variants={fadeInVariants}
         >
-          <span className="step-number">01</span>
-          <h1 className="hero-title">MAINTENANCE</h1>
-          <p className="hero-subtitle">
-            Nous proposons une large gamme de services de réparation automobile sur mesure.
+          <h1 className="service-hero-subtitle">Nos services</h1>
+          <p className="hero-title">
+            Nous avons une large
           </p>
-          <button className="btn-primary">PRENDRE RENDEZ-VOUS →</button>
+          <p className="hero-title">
+            gamme de services
+          </p>
         </motion.div>
-      </section>
-
-      {/* 2. MILIEU : BLANC */}
-      <section className="bg-white">
-        <div className="section-container">
-          <h2>À PROPOS DE NOS SERVICES</h2>
-          <p>
-            Service de maintenance haute précision pour garantir la sécurité et la longévité de votre véhicule.
-          </p>
         </div>
       </section>
 
@@ -140,8 +130,10 @@ export default function Services() {
           custom={0}
           variants={fadeInVariants}
         >
-          <span className="headerTitle">CAR REPAIR X</span>
-          <p className="headerText">Garage mécanique & entretien de précision.</p>
+          <span className="headerTitle">Reparation voiture
+          </span>
+          <p className="headerText">Reparation Portiere et vente de piece electronique
+          </p>
         </motion.div>
       </section>
 
