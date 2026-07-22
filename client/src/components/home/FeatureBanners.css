@@ -84,10 +84,6 @@
   pointer-events: none;
 }
 
-/* Effet sur l'image au survol de la bannière */
-.banner:hover .banner-img {
-  transform: scale(1.1) rotate(-3deg); /* Ajout d'une légère rotation */
-}
 
 @media (max-width: 992px) {
   .feature-banners {
