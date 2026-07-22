@@ -54,7 +54,7 @@ export default function FeatureBanners() {
   }, []);
 
   return (
-    <section className="feature-banners container">
+    <section className="feature-banners containers">
       {bannerData.map((banner, index) => (
         <div
           key={banner.id}
