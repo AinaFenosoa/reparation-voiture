@@ -23,7 +23,7 @@ export default function ProductCard({
     <div className="product-card">
       <div className="product-image-container">
         {sale && <span className="badge badge-sale">-10%</span>}
-        {newProduct && <span className="badge badge-new">NEW</span>}
+        {newProduct && <span className="badge badge-new">NOUVEAU</span>}
         <img src={image} alt={title} className="product-image" />
       </div>
       <div className="product-info">
@@ -34,10 +34,11 @@ export default function ProductCard({
         </div>
         <h3 className="product-title">{title}</h3>
         <div className="product-price">
-          <span className="current-price">Tk {price.toFixed(2)}</span>
-          {oldPrice && <span className="old-price">Tk {oldPrice.toFixed(2)}</span>}
+          <span className="current-price">{price.toFixed(2).replace('.', ',')} €</span>
+          {oldPrice && <span className="old-price">{oldPrice.toFixed(2).replace('.', ',')} €</span>}
         </div>
       </div>
     </div>
   );
 }
+

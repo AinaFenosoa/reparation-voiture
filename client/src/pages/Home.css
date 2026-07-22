@@ -1,16 +1,22 @@
 .promo-row-single {
-  margin: 60px auto;
+  margin: 80px auto;
 }
 
 .promo-row-double {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
-  margin: 40px auto;
+  margin: 80px auto;
 }
 
 @media (max-width: 768px) {
+  .promo-row-single {
+    margin: 50px auto;
+  }
+
   .promo-row-double {
     grid-template-columns: 1fr;
+    margin: 50px auto;
+    gap: 20px;
   }
 }

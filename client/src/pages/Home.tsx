@@ -23,24 +23,24 @@ import bannerMechanics from "../assets/banner-mechanics.png";
 import bannerInterior from "../assets/banner-interior.png";
 import bannerExterior from "../assets/banner-exterior.png";
 
-// Best seller products matching mockup layout
+// Meilleures ventes avec titres en français
 const bestSellerProducts = [
-  { id: 1, title: 'Product title here', price: 15.00, oldPrice: 20.00, image: brakePadImg, rating: 5, sale: true },
-  { id: 2, title: 'Demo product title', price: 29.00, oldPrice: 39.00, image: engineImg, rating: 5 },
-  { id: 3, title: 'Demo product name', price: 34.00, oldPrice: 44.00, image: headlightImg, rating: 5, newProduct: true },
-  { id: 4, title: 'Product title here', price: 15.00, oldPrice: 20.00, image: dashboardImg, rating: 5, sale: true },
+  { id: 1, title: 'Plaquettes de frein haute performance', price: 15.00, oldPrice: 20.00, image: brakePadImg, rating: 5, sale: true },
+  { id: 2, title: 'Bloc moteur V8 haute puissance', price: 29.00, oldPrice: 39.00, image: engineImg, rating: 5 },
+  { id: 3, title: 'Phares LED avant nouvelle génération', price: 34.00, oldPrice: 44.00, image: headlightImg, rating: 5, newProduct: true },
+  { id: 4, title: 'Tableau de bord numérique intelligent', price: 15.00, oldPrice: 20.00, image: dashboardImg, rating: 5, sale: true },
 ];
 
-// All products list matching mockup layout
+// Liste de tous les produits avec titres en français
 const allProducts = [
-  { id: 5, title: 'Dummy text for title', price: 29.00, oldPrice: 39.00, image: steeringImg, rating: 5, sale: true },
-  { id: 6, title: 'Product title here', price: 15.00, oldPrice: 20.00, image: brakePadImg, rating: 5, sale: true },
-  { id: 7, title: 'Dummy product name', price: 34.00, oldPrice: 44.00, image: headlightImg, rating: 5 },
-  { id: 8, title: 'Dummy text for title', price: 29.00, oldPrice: 39.00, image: bulbsImg, rating: 5, sale: true },
-  { id: 9, title: 'Product title here', price: 15.00, oldPrice: 20.00, image: engineImg, rating: 5 },
-  { id: 10, title: 'Dummy product name', price: 34.00, oldPrice: 44.00, image: headlightImg, rating: 5, newProduct: true },
-  { id: 11, title: 'Product title here', price: 15.00, oldPrice: 20.00, image: dashboardImg, rating: 5, sale: true },
-  { id: 12, title: 'Demo product title', price: 29.00, oldPrice: 39.00, image: scannerImg, rating: 5, newProduct: true },
+  { id: 5, title: 'Volant sport en cuir perforé', price: 29.00, oldPrice: 39.00, image: steeringImg, rating: 5, sale: true },
+  { id: 6, title: 'Jeu de plaquettes de frein renforcées', price: 15.00, oldPrice: 20.00, image: brakePadImg, rating: 5, sale: true },
+  { id: 7, title: 'Optique de phare LED longue portée', price: 34.00, oldPrice: 44.00, image: headlightImg, rating: 5 },
+  { id: 8, title: 'Kit d\'ampoules LED ultra lumineuses', price: 29.00, oldPrice: 39.00, image: bulbsImg, rating: 5, sale: true },
+  { id: 9, title: 'Moteur essence préparé', price: 15.00, oldPrice: 20.00, image: engineImg, rating: 5 },
+  { id: 10, title: 'Phares avant xénon haute visibilité', price: 34.00, oldPrice: 44.00, image: headlightImg, rating: 5, newProduct: true },
+  { id: 11, title: 'Écran de bord tactile universel', price: 15.00, oldPrice: 20.00, image: dashboardImg, rating: 5, sale: true },
+  { id: 12, title: 'Scanner de diagnostic auto OBD2', price: 29.00, oldPrice: 39.00, image: scannerImg, rating: 5, newProduct: true },
 ];
 
 export default function Home() {
@@ -53,8 +53,8 @@ export default function Home() {
       <Features />
 
       <ProductGrid 
-        title="BEST SELLER" 
-        subtitle="Jukas car parts are recommended for you and your friends for your best driving and safe driving experience."
+        title="MEILLEURES VENTES" 
+        subtitle="Les pièces automobiles Jukas sont recommandées pour vous offrir la meilleure expérience de conduite en toute sécurité."
       >
         {bestSellerProducts.map(product => (
           <ProductCard key={product.id} {...product} />
@@ -63,7 +63,8 @@ export default function Home() {
 
       <div className="container promo-row-single">
         <PromoBanner 
-          title="ALL KINDS OF PARTS THAT YOU NEED CAN FIND HERE"
+          title="TOUTES LES PIÈCES DONT VOUS AVEZ BESOIN SONT DISPONIBLES ICI"
+          buttonText="DÉCOUVRIR"
           dark={false}
           image={bannerMechanics}
         />
@@ -71,13 +72,15 @@ export default function Home() {
 
       <div className="container promo-row-double">
         <PromoBanner 
-          title="Latest Interior Parts"
+          title="Dernières Pièces d'Intérieur"
+          buttonText="DÉCOUVRIR"
           code="NOMEN"
           dark={true}
           image={bannerInterior}
         />
         <PromoBanner 
-          title="Latest Exterior Parts"
+          title="Dernières Pièces d'Extérieur"
+          buttonText="DÉCOUVRIR"
           code="NOMEN"
           dark={true}
           image={bannerExterior}
@@ -85,8 +88,8 @@ export default function Home() {
       </div>
 
       <ProductGrid 
-        title="ALL OF OUR PRODUCTS" 
-        subtitle="Jukas car parts are recommended for you and your friends for your best driving and safe driving experience."
+        title="TOUS NOS PRODUITS" 
+        subtitle="Explorez notre sélection complète de pièces détachées et d'accessoires automobiles haut de gamme."
       >
         {allProducts.map(product => (
           <ProductCard key={product.id} {...product} />

@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import './PromoBanner.css';
 
 interface PromoBannerProps {
@@ -13,16 +15,28 @@ interface PromoBannerProps {
 export default function PromoBanner({
   title,
   subtitle,
-  buttonText = 'SHOP NOW',
+  buttonText = 'DÉCOUVRIR',
   buttonLink = '#',
   image,
   code,
   dark = true
 }: PromoBannerProps) {
+  const bannerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (bannerRef.current) {
+      gsap.fromTo(
+        bannerRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }
+      );
+    }
+  }, []);
+
   return (
-    <div className={`promo-banner ${dark ? 'promo-dark' : 'promo-light'}`}>
+    <div ref={bannerRef} className={`promo-banner ${dark ? 'promo-dark' : 'promo-light'}`}>
       <div className="promo-content">
-        {code && <p className="promo-code">Decade <strong>{code}</strong> to Discount</p>}
+        {code && <p className="promo-code">Code <strong>{code}</strong> pour réduction de la décennie</p>}
         <h2 className="promo-title">{title}</h2>
         <a href={buttonLink} className={dark ? 'btn-primary' : 'btn-white'}>{buttonText}</a>
         {subtitle && <p className="promo-subtitle">{subtitle}</p>}
@@ -35,3 +49,4 @@ export default function PromoBanner({
     </div>
   );
 }
+

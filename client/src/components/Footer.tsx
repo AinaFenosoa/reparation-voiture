@@ -8,7 +8,7 @@ export default function Footer() {
         
         <div className="footer-col footer-brand">
           <Link to="/"><h2>Jukas</h2></Link>
-          <p>Jukas is the best place to shop for your car accessories. What kinds of parts do you need you can get here at an affordable price.</p>
+          <p>Jukas est votre destination privilégiée pour l'achat de vos accessoires et pièces automobiles. Retrouvez toutes les pièces dont vous avez besoin au meilleur prix.</p>
           <div className="footer-socials">
             <a href="#">F</a>
             <a href="#">T</a>
@@ -18,24 +18,24 @@ export default function Footer() {
         </div>
 
         <div className="footer-col">
-          <h3>Information</h3>
+          <h3>Informations</h3>
           <ul>
-            <li><Link to="/about">About Company</Link></li>
-            <li><Link to="/contact">Contact Us</Link></li>
-            <li><Link to="/services">Our Service</Link></li>
-            <li><Link to="/faq">Why Us?</Link></li>
-            <li><Link to="/careers">Careers</Link></li>
+            <li><Link to="/">À propos</Link></li>
+            <li><Link to="/services">Nos services</Link></li>
+            <li><Link to="/blog">Blog</Link></li>
+            <li><Link to="/">Pourquoi nous ?</Link></li>
+            <li><Link to="/">Carrières</Link></li>
           </ul>
         </div>
 
         <div className="footer-col">
-          <h3>Quicklink</h3>
+          <h3>Liens Rapides</h3>
           <ul>
-            <li><Link to="/about">About</Link></li>
+            <li><Link to="/">Accueil</Link></li>
+            <li><Link to="/services">Services</Link></li>
             <li><Link to="/blog">Blog</Link></li>
-            <li><Link to="/shop">Shop</Link></li>
-            <li><Link to="/cart">Cart</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="/">Boutique</Link></li>
+            <li><Link to="/">Panier</Link></li>
           </ul>
         </div>
 
@@ -43,26 +43,27 @@ export default function Footer() {
           <h3>Support</h3>
           <ul>
             <li><Link to="/blog">Blog</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="/return">Return Policy</Link></li>
-            <li><Link to="/support">Online Support</Link></li>
-            <li><Link to="/faq">Money Back</Link></li>
+            <li><Link to="/services">Support en ligne</Link></li>
+            <li><Link to="/">Politique de retour</Link></li>
+            <li><Link to="/">Garantie satisfait</Link></li>
+            <li><Link to="/">FAQ</Link></li>
           </ul>
         </div>
 
         <div className="footer-col footer-contact">
-          <h3>Store Information</h3>
+          <h3>Informations Magasin</h3>
           <p>📍 2011, Avenue St, Block Area, Texas</p>
-          <p>Main Local Los Angeles, USA</p>
-          <p>📞 Phone: +1 234 567 890</p>
-          <p>✉️ Email: info@jukas.com</p>
+          <p>Magasin Principal, France / International</p>
+          <p>📞 Téléphone : +1 234 567 890</p>
+          <p>✉️ E-mail : info@jukas.com</p>
         </div>
 
       </div>
       
       <div className="footer-bottom">
-        <p>Copyright © 2024 Jukas All right Reserved.</p>
+        <p>Copyright © 2024 Jukas. Tous droits réservés.</p>
       </div>
     </footer>
   );
 }
+

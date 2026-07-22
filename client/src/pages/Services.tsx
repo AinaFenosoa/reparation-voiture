@@ -5,7 +5,6 @@ import './Services.css';
 import { InfiniteSlider } from "../components/InfiniteSlider";
 import { motion, type Variants } from 'framer-motion';
 import Card  from "../components/CardService";
-import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
 const fadeInVariants: Variants = {
