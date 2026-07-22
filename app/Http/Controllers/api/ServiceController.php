@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\api;
-
 use App\Http\Controllers\Controller;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
 
 class ServiceController extends Controller
 {
@@ -41,7 +41,7 @@ class ServiceController extends Controller
         $services= $query->paginate($perPage);
 
         return response()->json([
-             'message ' => "les services est bien etablie",
+             'message' => "Les services sont bien etablie",
             'data' =>   $services->items(),
             'meta' => [
                 'current_page' =>  $services->currentPage(),
@@ -62,7 +62,8 @@ class ServiceController extends Controller
         $service = Service::where('slug', $slug)->firstOrFail();
 
         return response()->json([
-            'data' => $service
+           'message' => 'Service trouvé avec succès',
+           'data' => $service
         ]);
     }
 
@@ -76,6 +77,7 @@ class ServiceController extends Controller
             ->get();
 
         return response()->json([
+            'message' => 'Deals du jour récupérés avec succès',
             'data' => $services
         ]);
     }
@@ -90,7 +92,8 @@ class ServiceController extends Controller
             ->get();
 
         return response()->json([
-            'data' => $services
+             'message' => 'Deals du jour récupérés avec succès',
+             'data' => $services
         ]);
     }
 
@@ -100,23 +103,21 @@ class ServiceController extends Controller
     public function related($slug)
     {
         $service = Service::where('slug', $slug)->firstOrFail();
-
-        $related = Service::where('id', '!=', $product->id)
-            ->where('categorie', $product->categorie)
+        $related = Service::where('id', '!=', $service->id)
             ->take(4)
             ->get();
-
         return response()->json([
+            'message' => 'Service similaires récupérés avec succès',
             'data' => $related
         ]);
     }
 
     /**
-     * Créer un produit (admin)
+     * Créer un service (admin)
      */
     public function store(Request $request)
     {
-        $validator = validator($request->all(), [
+        $validator = Validator::make($request->all(), [
             'nom' => 'required|string|max:255',
             'description' => 'nullable|string',
             'prix' => 'required|numeric|min:0',

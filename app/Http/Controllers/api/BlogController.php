@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\api;
-
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use Illuminate\Http\Request;
@@ -38,7 +37,7 @@ class BlogController extends Controller
 
         return response()->json([
             'message' => "Blog est avec succes ",
-            'data' => $posts->items(),
+            'data' =>  $posts->items(),
             'meta' => [
                 'current_page' => $posts->currentPage(),
                 'per_page' => $posts->perPage(),
