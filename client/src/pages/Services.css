@@ -13,8 +13,10 @@
   width: 100%;
   background-color: var(--service-bg-light);
   min-height: 100vh;
-  padding-bottom: 5rem;
   overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .section-container {

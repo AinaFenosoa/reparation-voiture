@@ -16,7 +16,6 @@
   font-family: 'Arial', sans-serif;
   background-color: var(--blog-bg-light);
   min-height: 100vh;
-  padding-bottom: 5rem;
   overflow-x: hidden;
 }
 
