@@ -1,0 +1,307 @@
+:root {
+  --service-primary-black: #111111;
+  --service-secondary-black: #1a1a1a;
+  --service-accent-yellow: #f6b72a;
+  --service-text-light: #ffffff;
+  --service-text-gray: #7a7a7a;
+  --service-bg-light: #f4f4f4;
+  --service-white: #ffffff;
+  --service-transition: all 0.3s ease-in-out;
+}
+/* Conteneur global */
+.services-page {
+  width: 100%;
+  background-color: var(--service-bg-light);
+  min-height: 100vh;
+  padding-bottom: 5rem;
+  overflow-x: hidden;
+}
+
+.section-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 20px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   1. HERO (Fond sombre + Image + Ligne cassée en bas)
+   ========================================================================== */
+.bg-hero {
+  position: relative;
+  background-color: var(--service-primary-black);
+  background-image: url('https://images.unsplash.com/photo-1645445522156-9ac06bc7a767?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  color: var(--service-text-light);
+
+  /* Découpe cassée au bas du Hero */
+  /* clip-path: polygon(0 0, 100% 0, 100% 88%, 48% 88%, 42% 100%, 0 100%); */
+}
+.service-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+  background: rgba(17, 17, 17, 0.85); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1; 
+}
+
+.service-hero-subtitle { color: var(--blog-accent-yellow); font-size: 1rem; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; }
+.service-hero-description { color: #cccccc; max-width: 600px; margin: 0 auto; font-size: 1.1rem; line-height: 1.5; }
+h1.hero-subtitle {
+  color: var(--service-accent-yellow);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto; /* Suppression de margin-top: 60px */
+}
+
+.step-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin: 10px 0;
+}
+
+.hero-subtitle {
+  color: #cccccc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.btn-primary {
+  margin-top: 25px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+/* ==========================================================================
+   2. MILIEU (Fond Blanc)
+   ========================================================================== */
+.bg-white {
+  background-color: #ffffff;
+  color: #0e1012;
+  margin-top: -40px;
+  padding: 80px 20px 100px 20px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   3. CARTES (Fond Gris + Ligne cassée haut et bas)
+   ========================================================================== */
+.bg-grey {
+  background-color: #f2f3f5;
+  color: #0e1012;
+  margin-top: -30px;
+  padding-top: 90px;
+  padding-bottom: 120px;
+
+  /* Entaille angulaire en haut à gauche et en bas à gauche */
+  /* clip-path: polygon(0 40px, 42% 40px, 48% 0, 100% 0, 100% calc(100% - 40px), 48% calc(100% - 40px), 42% 100%, 0 100%); */
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* On applique les styles sur les conteneurs directs des cartes */
+/* .cards-grid > * {
+  width: 100%;
+  max-width: 320px; /* Largeur de chaque carte */
+  /*transition: transform 0.3s ease;
+} */
+
+/* --- ALTERNANCE IMPAIR / PAIR --- */
+
+/* Cartes IMPAIRES (1er, 3ème, 5ème...) -> Décalées vers la GAUCHE */
+/* .cards-grid > *:nth-child(odd) {
+  align-self: flex-start; */
+  /* Optionnel : tu peux aussi ajouter un petit décalage en marge */
+  /* margin-left: 5%; 
+} */
+
+/* Cartes PAIRES (2ème, 4ème, 6ème...) -> Décalées vers la DROITE */
+/* .cards-grid > *:nth-child(even) {
+  align-self: flex-end; */
+  /* Optionnel : petit décalage en marge */
+  /* margin-right: 5%; 
+} */
+
+/* --- RESPONSIVE MOBILE --- */
+/* Sur téléphone, on recentre tout pour éviter que ça déborde */
+/* @media (max-width: 600px) {
+  .cards-grid > *:nth-child(odd),
+  .cards-grid > *:nth-child(even) {
+    align-self: center;
+    margin-left: 0;
+    margin-right: 0;
+  }
+} */
+
+.card-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.card-id {
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #0e1012;
+}
+
+.card-price {
+  display: inline-block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.slider-wrapper {
+  margin-top: 50px;
+}
+
+.slider-badge {
+  background: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   4. BAS (Footer Noir)
+   ========================================================================== */
+.bg-black {
+  background-color: #000000;
+  color: #ffffff;
+  margin-top: -40px;
+  padding: 100px 20px 60px 20px;
+  text-align: center;
+}
+
+/* Responsive identical au Blog */
+@media (max-width: 768px) {
+  .bg-hero { 
+    height: 350px; 
+  }
+  .hero-title { 
+    font-size: 2.5rem; 
+  }}
+
+  .slider-card .slider-icon {
+  width: 50px;              /* Définit la largeur de l'icône */
+  height: 50px;             /* Définit la hauteur de l'icône */
+  margin-bottom: 20px;
+  object-fit: contain;
+  
+  /* ASTUCE : Si ton SVG n'est pas noir à l'origine, 
+     cette ligne le force à devenir 100% noir totalement propre */
+  filter: brightness(0);    
+}
+
+.bg-black {
+  background-color: #121214;
+  color: #ffffff;
+  padding: 60px 20px 20px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-logo {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: #f89b29;
+}
+
+.footer-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-text, .footer-info {
+  font-size: 14px;
+  color: #a0a0a0;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a, .footer-links span {
+  color: #a0a0a0;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #f89b29;
+}
+
+.footer-badge {
+  display: inline-block;
+  background: rgba(248, 155, 41, 0.15);
+  color: #f89b29;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #707070;
+}

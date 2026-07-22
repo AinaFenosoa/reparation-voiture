@@ -1,0 +1,64 @@
+.brands {
+  padding: 40px 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.brand-logos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.brand-item {
+  opacity: 0.6;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.brand-item span {
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  color: var(--text-light);
+}
+
+.brand-art-studio {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  text-transform: lowercase;
+}
+
+.brand-n3 {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.brand-vintage {
+  font-family: 'Georgia', serif;
+  letter-spacing: 4px;
+}
+
+.brand-old-chapter {
+  font-family: 'Times New Roman', serif;
+  letter-spacing: 2px;
+}
+
+.brand-pure {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  text-transform: lowercase;
+}
+
+.brand-item:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
