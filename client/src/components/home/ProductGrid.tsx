@@ -28,7 +28,7 @@ export default function ProductGrid({ title, subtitle, children }: ProductGridPr
   }, [children]);
 
   return (
-    <section className="product-grid-section container">
+    <section className="product-grid-section ">
       <h2 className="section-title">{title}</h2>
       {subtitle && <p className="section-subtitle">{subtitle}</p>}
       <div ref={gridRef} className="product-grid">
