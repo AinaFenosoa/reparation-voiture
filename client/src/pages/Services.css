@@ -13,7 +13,7 @@
   width: 100%;
   background-color: var(--service-bg-light);
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
 
   display: flex;
   flex-direction: column;
