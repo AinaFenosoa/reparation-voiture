@@ -6,6 +6,7 @@ import { InfiniteSlider } from "../components/InfiniteSlider";
 import { motion, type Variants } from 'framer-motion';
 import Card  from "../components/CardService";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const fadeInVariants: Variants = {
   hidden: { 
@@ -151,63 +152,7 @@ export default function Services() {
           </div>
         </div>
       </section>
-
-      {/* 4. BAS : FOOTER NOIR STANDARD */}
-<footer className="bg-black footer-section">
-  <motion.div 
-    className="footer-container"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, margin: "-50px" }}
-    custom={0}
-    variants={fadeInVariants}
-  >
-    <div className="footer-grid">
-      {/* Colonne 1 : À propos */}
-      <div className="footer-col">
-        <h3 className="footer-logo">GARAGE REPAS</h3>
-        <p className="footer-text">
-          Spécialiste de la réparation automobile, entretien complet, portières et vente de pièces électroniques de haute qualité.
-        </p>
-      </div>
-
-      {/* Colonne 2 : Navigation */}
-      <div className="footer-col">
-        <h4 className="footer-title">Navigation</h4>
-        <ul className="footer-links">
-          <li><Link to="/">Accueil</Link></li>
-          <li><Link to="/services">Nos Services</Link></li>
-          <li><Link to="/blog">À Propos</Link></li>
-        </ul>
-      </div>
-
-      {/* Colonne 3 : Prestations */}
-      <div className="footer-col">
-        <h4 className="footer-title">Nos Prestations</h4>
-        <ul className="footer-links">
-          {services.map((service, index)=>(
-            <li><span>{service.nom}</span></li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Colonne 4 : Contact & Horaires */}
-      {/* <div className="footer-col">
-        <h4 className="footer-title">Contact</h4>
-        <p className="footer-info">📍 Antananarivo, Madagascar</p>
-        <p className="footer-info">📞 +261 34 00 000 00</p>
-        <p className="footer-info">✉️ contact@garage.mg</p>
-        <p className="footer-badge">Disponible 7/7j (8h - 18h)</p>
-      </div> */}
-    </div>
-
-    {/* Copyright */}
-    <div className="footer-bottom">
-      <p>© {new Date().getFullYear()} Garage Auto. Tous droits réservés.</p>
-    </div>
-  </motion.div>
-</footer>
-
+      <Footer/>
     </div>
   );
 }
