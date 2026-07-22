@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './NavBar.css';
 
 export default function NavBar() {
@@ -10,9 +10,22 @@ export default function NavBar() {
         </div>
         
         <ul className="navbar-links">
-          <li><Link to="/" className="active">Accueil</Link></li>
-          <li><Link to="/Services">Services</Link></li>
-          <li><Link to="/blog">BLOG</Link></li>
+          {/* Le paramètre 'end' évite que 'Accueil' reste actif sur toutes les sous-pages */}
+          <li>
+            <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>
+              Accueil
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/services" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Services
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : '')}>
+              BLOG
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>
