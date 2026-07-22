@@ -5,7 +5,7 @@ import modernEngineImg from '../../assets/modern-engine.png';
 import modernDashboardImg from '../../assets/modern-dashboard.png';
 import './FeatureBanners.css';
 
-// Structure de données pour les bannières avec les nouvelles images générées
+// Structure de données pour les bannières avec les nouvelles images en background
 const bannerData = [
   {
     id: 1,
@@ -13,7 +13,7 @@ const bannerData = [
     tag: 'Nouveauté 2024',
     title: 'Phares Performants & Design',
     link: '/shop',
-    img: modernHeadlightImg,
+    bg: modernHeadlightImg,
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const bannerData = [
     tag: 'Nouveau Design 2024',
     title: 'Capots Moteur Exclusifs',
     link: '/shop',
-    img: modernEngineImg,
+    bg: modernEngineImg,
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const bannerData = [
     tag: 'Intérieur Moderne',
     title: 'Tableaux de Bord Élégants',
     link: '/shop',
-    img: modernDashboardImg,
+    bg: modernDashboardImg,
   },
 ];
 
@@ -46,8 +46,8 @@ export default function FeatureBanners() {
           y: 0,
           opacity: 1,
           duration: 1,
-          stagger: 0.2, // Délai entre chaque bannière
-          ease: 'power3.out', // Ease plus fluide
+          stagger: 0.2,
+          ease: 'power3.out',
         }
       );
     }
@@ -60,7 +60,9 @@ export default function FeatureBanners() {
           key={banner.id}
           ref={(el) => { bannersRef.current[index] = el; }}
           className={`banner banner-${banner.type}`}
+          style={{ backgroundImage: `url(${banner.bg})` }}
         >
+          <div className="banner-overlay" />
           <div className="banner-content">
             <p>{banner.tag}</p>
             <h3>{banner.title}</h3>
@@ -68,7 +70,6 @@ export default function FeatureBanners() {
               VOIR LES OFFRES
             </a>
           </div>
-          <img src={banner.img} alt={banner.title} className="banner-img" />
         </div>
       ))}
     </section>

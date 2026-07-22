@@ -1,89 +1,95 @@
 :root {
   --text-white: #ffffff;
   --bg-dark: #1a1a1a;
-  --brand-red: #ac0000; /* Un rouge légèrement plus profond et moderne */
+  --brand-red: #ac0000;
   --transition-main: all 0.4s ease;
 }
 
 .feature-banners {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px; /* Espace légèrement augmenté */
-  margin-top: -60px; /* Ajusté pour un effet de superposition plus marqué */
+  gap: 25px;
+  margin-top: -60px;
   margin-bottom: 80px;
   position: relative;
   z-index: 10;
 }
 
 .banner {
-  padding: 35px; /* Plus d'espace intérieur */
-  border-radius: 12px; /* Arrondis plus modernes */
+  padding: 35px;
+  border-radius: 12px;
   color: var(--text-white);
-  min-height: 200px; /* Légèrement plus haut */
+  min-height: 220px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   position: relative;
   overflow: hidden;
-  /* Effet d'élévation par défaut */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   transition: var(--transition-main);
+  /* Background image properties */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Animation au survol de la carte entière */
 .banner:hover {
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
-.banner-dark {
-  background-color: var(--bg-dark);
+/* Overlay sombre par-dessus l'image de fond pour la lisibilité du texte */
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  transition: background 0.4s ease;
 }
 
-.banner-red {
-  background-color: var(--brand-red);
+.banner-dark .banner-overlay {
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.82) 40%, rgba(20, 20, 20, 0.45) 100%);
+}
+
+.banner-red .banner-overlay {
+  background: linear-gradient(135deg, rgba(140, 0, 0, 0.82) 40%, rgba(140, 0, 0, 0.45) 100%);
+}
+
+.banner:hover .banner-overlay {
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.7) 30%, rgba(20, 20, 20, 0.3) 100%);
+}
+
+.banner-red:hover .banner-overlay {
+  background: linear-gradient(135deg, rgba(140, 0, 0, 0.7) 30%, rgba(140, 0, 0, 0.3) 100%);
 }
 
 .banner-content {
   position: relative;
   z-index: 2;
-  flex: 1; /* Prend l'espace disponible */
+  flex: 1;
 }
 
 .banner p {
-  color: rgba(255, 255, 255, 0.7); /* Plus subtil */
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.85rem;
   margin-bottom: 12px;
   text-transform: uppercase;
-  letter-spacing: 1px; /* Espacement moderne */
+  letter-spacing: 1px;
 }
 
 .banner h3 {
-  font-size: 1.5rem; /* Un peu plus grand */
+  font-size: 1.5rem;
   margin-bottom: 25px;
   color: var(--text-white);
   line-height: 1.3;
   font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .btn-small {
   padding: 10px 20px;
   font-size: 0.8rem;
-  border-radius: 20px; /* Boutons pillule */
+  border-radius: 20px;
 }
-
-.banner-img {
-  position: absolute;
-  right: -15px;
-  bottom: -15px;
-  height: 150px;
-  max-width: 55%;
-  object-fit: contain;
-  z-index: 1;
-  opacity: 0.9; /* Moins transparent */
-  transition: transform 0.5s ease; /* Plus lent pour plus de fluidité */
-  pointer-events: none;
-}
-
 
 @media (max-width: 992px) {
   .feature-banners {
