@@ -36,7 +36,7 @@ class Service extends Model
     {
         parent::boot();
         static::creating(function ($produit) {
-            $produit->slug = Str::slug($produit->nom);
+            $service->slug = Str::slug($service->nom);
         });
     }
 

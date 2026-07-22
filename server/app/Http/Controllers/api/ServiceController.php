@@ -41,7 +41,7 @@ class ServiceController extends Controller
         $services= $query->paginate($perPage);
 
         return response()->json([
-             'message' => "Les services sont bien etablie",
+             'message' => "Les services sont bien etablies",
             'data' =>   $services->items(),
             'meta' => [
                 'current_page' =>  $services->currentPage(),
