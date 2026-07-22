@@ -72,12 +72,6 @@ ul {
   background-color: #f0f0f0;
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--text-dark);
-  font-weight: 700;
-  margin-bottom: 15px;
-}
 
 .section-title {
   text-align: center;
