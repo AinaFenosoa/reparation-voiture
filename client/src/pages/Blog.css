@@ -84,8 +84,8 @@
    ========================================== */
 .blog-main-content {
   max-width: 1200px;
-  margin: -50px auto 0;
-  padding: 0 20px;
+  margin: -50px auto 0; /* Conserve le centrage et la remontée du header */
+  padding: 0 20px 5rem 20px; /* Ajout d'un padding-bottom de 5rem pour créer l'espace avant le footer */
   position: relative;
   z-index: 3;
 }
